@@ -17,11 +17,7 @@ function App() {
       <div className="cards_container">
         {years.map((obj) => (
           <div key={obj.id}>
-            {checked.filter((i) => i === obj.id).length == 1 ? (
-              <YearCard title={obj.year} />
-            ) : (
-              ""
-            )}
+            {checked.find((i) => i === obj.id) && <YearCard title={obj.year} />}
           </div>
         ))}
       </div>

@@ -8,6 +8,7 @@ header {
 .cards_container {
   padding: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2.5vw;
 }

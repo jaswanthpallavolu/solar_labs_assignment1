@@ -4,7 +4,7 @@ export const years = [
   { year: 2023, id: 3 },
 ]
 
-export const dropDown = [
+export const dropDownOptions = [
   { name: "Jan-Apr", id: 1 },
   { name: "May-Aug", id: 2 },
   { name: "Sep-Dec", id: 3 },

@@ -30,7 +30,7 @@ export default function YearCard({ year }) {
     e.preventDefault()
     if (entered?.value === undefined) {
       alert(`Year Card No: ${year}
-      No value is entered in any input`)
+      No value is entered or typed in any input`)
       return
     }
 
@@ -43,7 +43,6 @@ export default function YearCard({ year }) {
       alert(`Year Card No: ${year}
       All the Input values should not be Zero`)
       setEntered({ value: 0, index: getRandomInteger(0, 3) })
-      setEntered({})
       return
     }
 

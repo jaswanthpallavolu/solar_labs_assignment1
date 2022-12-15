@@ -9,8 +9,8 @@ export const InputGroup = ({
   label,
 }) => {
   const handleInput = (e) => {
-    setValue(e.target.value)
-    setEntered({ value: e.target.value, index })
+    setValue(parseInt(e.target.value))
+    setEntered({ value: parseInt(e.target.value), index })
   }
   return (
     <div className="igroup">

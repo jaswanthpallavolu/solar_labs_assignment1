@@ -26,12 +26,30 @@ export default function YearCard({ title }) {
   }
   const handleCalculate = (e) => {
     e.preventDefault()
-    // if all are zeroes
-    if (!entered?.value) {
-      alert("all the Input values should not be Zero")
+    if (entered?.value === 0) {
+      alert(`Card: ${title}
+      All the Input values should not be Zero`)
       setEntered({ value: 0, index: getRandomInt(0, 3) })
       return
     }
+    if (entered?.value == undefined) {
+      alert(`Card: ${title}
+      No value is entered in any input`)
+      return
+    }
+
+    var arr = [entered.value]
+    while (arr.length < 4) {
+      const num = getRandomInt(entered.value - 100, entered.value + 100)
+      if (arr.indexOf(num) === -1) arr.push(num)
+    }
+    for (var i = 0; i < 4; i++) {
+      if (i !== entered.index) {
+        const setValue = inputStates[i][1]
+        setValue(arr.pop())
+      }
+    }
+    setEntered({})
   }
   useEffect(() => {
     handleReset()

@@ -1,0 +1,20 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5em;
+}
+.checkbox input {
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+}
+
+.ycard {
+  padding: 0.5em;
+  width: 25rem;
+
+  border: 1px solid gray;
+}
+
+.ycard .reset {
+}

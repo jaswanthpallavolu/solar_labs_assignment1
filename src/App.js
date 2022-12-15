@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import "./App.css"
+import CheckBox from "./components/CheckBox"
+import { years } from "./data"
+import YearCard from "./components/YearCard"
 
 function App() {
+  const [checked, setChecked] = useState([])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        {years.map((obj) => (
+          <CheckBox setValue={setChecked} key={obj.id} info={obj} />
+        ))}
       </header>
+
+      <div className="cards_container">
+        {years.map((obj) => (
+          <div key={obj.id}>
+            {checked.filter((i) => i === obj.id).length == 1 ? (
+              <YearCard title={obj.year} />
+            ) : (
+              ""
+            )}
+          </div>
+        ))}
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

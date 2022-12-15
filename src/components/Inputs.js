@@ -9,8 +9,8 @@ export const InputGroup = ({
   label,
 }) => {
   const handleInput = (e) => {
-    setValue(parseInt(e.target.value))
-    setEntered({ value: parseInt(e.target.value), index })
+    setValue(e.target.value)
+    setEntered({ value: e.target.value, index })
   }
   return (
     <div className="igroup">
@@ -19,7 +19,9 @@ export const InputGroup = ({
         type="number"
         value={value}
         onChange={handleInput}
-        disabled={entered?.index ? index !== entered.index : false}
+        disabled={
+          entered?.index !== undefined ? index !== entered.index : false
+        }
         required={true}
       />
     </div>

@@ -26,21 +26,24 @@ export default function YearCard({ title }) {
   }
   const handleCalculate = (e) => {
     e.preventDefault()
-    if (entered?.value === 0) {
-      alert(`Card: ${title}
-      All the Input values should not be Zero`)
-      setEntered({ value: 0, index: getRandomInt(0, 3) })
-      return
-    }
-    if (entered?.value == undefined) {
+    if (entered?.value === undefined) {
       alert(`Card: ${title}
       No value is entered in any input`)
       return
     }
 
-    var arr = [entered.value]
+    if (!month1 && !month2 && !month3 && !month4) {
+      alert(`Card: ${title}
+      All the Input values should not be Zero`)
+      setEntered({ value: 0, index: getRandomInt(0, 3) })
+      setEntered({})
+      return
+    }
+
+    const val = parseInt(entered.value)
+    var arr = []
     while (arr.length < 4) {
-      const num = getRandomInt(entered.value - 100, entered.value + 100)
+      const num = getRandomInt(val - 100, val + 100)
       if (arr.indexOf(num) === -1) arr.push(num)
     }
     for (var i = 0; i < 4; i++) {
@@ -67,7 +70,7 @@ export default function YearCard({ title }) {
         </button>
       </div>
       <h1>{title}</h1>
-      <form onSubmit={handleCalculate}>
+      <form>
         <div className="dropd">
           <DropDown value={option} setValue={setOption} />
           {months?.labels?.map((month, index) => (
@@ -84,7 +87,11 @@ export default function YearCard({ title }) {
         </div>
 
         <div className="place-right">
-          <button className="calc" disabled={!months?.labels}>
+          <button
+            className="calc"
+            onClick={handleCalculate}
+            disabled={!months?.labels}
+          >
             calculate
           </button>
         </div>

@@ -6,9 +6,10 @@ header {
   justify-content: center;
 }
 .cards_container {
-  padding: 1rem;
+  /* padding: 1rem; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2.5vw;
+  /* column-gap: 2.5vw;
+  row-gap: 2.5vw; */
 }

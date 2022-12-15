@@ -1,13 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import "./styles.css"
-export const InputGroup = ({
-  index,
-  entered,
-  setEntered,
-  value,
-  setValue,
-  label,
-}) => {
+const InputGroup = ({ index, entered, setEntered, value, setValue, label }) => {
   const handleInput = (e) => {
     setValue(e.target.value)
     setEntered({ value: e.target.value, index })
@@ -27,3 +20,5 @@ export const InputGroup = ({
     </div>
   )
 }
+
+export default InputGroup

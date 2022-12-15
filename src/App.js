@@ -17,7 +17,7 @@ function App() {
       <div className="cards_container">
         {checked?.map((id) => (
           <div key={id}>
-            <YearCard title={years.find((i) => i.id === id).year} />
+            <YearCard year={years.find((i) => i.id === id).year} />
           </div>
         ))}
       </div>
